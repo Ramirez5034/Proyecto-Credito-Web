@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <h1>Registro</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>Crear Cuenta</h2>
+            <form id="registerForm">
+                <label for="username">Nuevo Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Nuevo Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Registrar</button>
+            </form>
+            <button class="back-button" onclick="window.location.href='InicioSesion.html'">Volver</button>
+        </div>
+    </main>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+            // Obtener los valores de los campos de texto
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Guardar en localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            alert("Registro exitoso! Puedes iniciar sesión.");
+            window.location.href = "InicioSesion.html"; // Redirigir al login
+        });
+    </script>
+</body>
+</html>

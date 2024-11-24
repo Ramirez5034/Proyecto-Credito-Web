@@ -1,0 +1,139 @@
+/* Fondo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #8B0000, #B22222);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo del botón de registro */
+.register-button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #B22222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.register-button:hover {
+    background-color: #8B0000;
+}
+
+
+/* Cabecera */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenedor del formulario e imagen */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+}
+
+/* Imagen */
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B22222;
+}
+
+.user-icon {
+    width: 80px; /* Tamaño más pequeño */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+/* Formulario */
+.form-section {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    color: #8B0000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background-color: #5B0000;
+}
+
+p {
+    margin-top: 20px;
+}
+
+a {
+    color: #8B0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,56 @@
+/* Fondo general */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #8B0000, #B22222); /* Colores rojo y vino */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de los botones del menú */
+.menu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 20px; /* Espacio entre botones */
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #8B0000; /* Rojo oscuro */
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #5B0000; /* Tonalidad más oscura */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+button:active {
+    background-color: #7F1A1A; /* Tonalidad más oscura al hacer clic */
+    transform: scale(0.95); /* Efecto de reducción */
+}

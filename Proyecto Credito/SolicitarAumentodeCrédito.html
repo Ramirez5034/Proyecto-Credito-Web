@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Aumento De Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #b30b0b, #6b0013); /* Rojo y vino */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+        header h1 {
+            margin: 20px 0;
+            font-size: 24px;
+            color: #6b0013; /* Color vino */
+        }
+        button {
+            background-color: #c90c0c; /* Rojo similar al fondo */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #6b0013; /* Vino para el hover */
+        }
+        .file-input {
+            margin: 15px 0;
+            text-align: left;
+        }
+        .file-input label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #6b0013; /* Color vino */
+        }
+        input[type="file"] {
+            margin-top: 5px;
+            width: 100%;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título -->
+        <header>
+            <h1>Solicitud De Aumento</h1>
+        </header>
+
+        <!-- Sección de carga de archivos -->
+        <div class="file-input">
+            <label for="comprobante">Cargar Comprobante de Domicilio:</label>
+            <input type="file" id="comprobante" accept=".pdf">
+        </div>
+        <div class="file-input">
+            <label for="identidad">Cargar Foto o INE:</label>
+            <input type="file" id="identidad" accept="image/*">
+        </div>
+
+        <!-- Botones -->
+        <div class="btn-container">
+            <button onclick="location.href='menu.html'">Menu</button>
+            <button onclick="aceptarSolicitud()">Enviar Solicitud</button>
+        </div>
+    </div>
+
+    <script>
+        function aceptarSolicitud() {
+            const comprobante = document.getElementById('comprobante').files[0];
+            const identidad = document.getElementById('identidad').files[0];
+
+            if (!comprobante || !identidad) {
+                alert("Favor de ingresar los dos archivos correspondientes.");
+                return;
+            }
+
+            alert("Se ha enviado la solicitud de aumento de credito exitosamente. Favor de espera....");
+        }
+    </script>
+</body>
+</html>

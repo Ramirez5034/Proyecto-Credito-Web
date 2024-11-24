@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8B0000, #B22222);
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #6b0013;
+            text-align: center;
+        }
+        .credit-info, .purchase-info, .payment-history {
+            margin-bottom: 20px;
+        }
+        .credit-info p, .payment-history p {
+            font-size: 16px;
+        }
+        .purchase-info ul, .payment-history ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .purchase-info li, .payment-history li {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .button {
+            background-color: #c90c0c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .button:hover {
+            background-color: #6b0013;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Crédito</h1>
+        
+        <!-- Información de Crédito -->
+        <div class="credit-info">
+            <p id="creditoDisponible">Crédito disponible: $3000.00</p>
+            <button class="button" onclick="verCompras()">Ver Compras</button>
+        </div>
+
+        <!-- Historial de Pagos -->
+        <div class="payment-history">
+            <h3>Historial de Pagos</h3>
+            <ul id="historialPagos">
+                <!-- Las fechas y estados de pago se mostrarán aquí -->
+            </ul>
+            <p id="proximoPago">Próximo pago: 01/12/2024</p>
+            <p id="fechaCorte">Fecha de corte: 31/12/2024</p>
+        </div>
+
+        <!-- Botón para realizar una nueva solicitud -->
+        <button class="button" onclick="realizarSolicitud()">Solicitar Aumento de Crédito</button>
+
+        <!-- Botón para regresar al menú -->
+        <button class="button" onclick="irAlMenu()">Ir al Menú</button>
+    </div>
+
+    <script>
+        // Datos simulados (equivalente al C# en el backend)
+        const historialPagos = [
+            { fechaPago: new Date(2024, 9, 1), pagado: true }, // Octubre
+            { fechaPago: new Date(2024, 10, 1), pagado: false }, // Noviembre
+            { fechaPago: new Date(2024, 11, 1), pagado: false }, // Diciembre
+        ];
+
+        const historialCompras = [500, 150, 300]; // Monto de las compras
+
+        let creditoDisponible = 3000; // Crédito disponible
+
+        // Función para actualizar la información de pagos y compras
+        function mostrarHistorial() {
+            // Mostrar historial de pagos
+            const historialList = document.getElementById("historialPagos");
+            historialList.innerHTML = ""; // Limpiar la lista antes de agregar nuevos elementos
+            historialPagos.forEach(pago => {
+                const estado = pago.pagado ? "Pagado" : "Pendiente";
+                const fechaPago = pago.fechaPago.toLocaleDateString();
+                const listItem = document.createElement("li");
+                listItem.textContent = `Fecha: ${fechaPago} - Estado: ${estado}`;
+                historialList.appendChild(listItem);
+            });
+
+            // Determinar el próximo pago (el primero no pagado)
+            const proximoPago = historialPagos.find(pago => !pago.pagado);
+            const proximoPagoDate = proximoPago ? proximoPago.fechaPago.toLocaleDateString() : "No disponible";
+            const fechaCorte = proximoPago ? new Date(proximoPago.fechaPago.getFullYear(), proximoPago.fechaPago.getMonth() + 1, 0).toLocaleDateString() : "No disponible";
+
+            // Actualizar los campos del próximo pago y fecha de corte
+            document.getElementById("proximoPago").textContent = `Próximo pago: ${proximoPagoDate}`;
+            document.getElementById("fechaCorte").textContent = `Fecha de corte: ${fechaCorte}`;
+        }
+
+        // Función para actualizar el crédito disponible y mostrar las compras
+        function verCompras() {
+            let comprasText = "Historial de Compras:\n";
+            historialCompras.forEach(compra => {
+                comprasText += `Compra: $${compra.toFixed(2)}\n`;
+            });
+            alert(comprasText); // Mostrar las compras en una ventana emergente
+        }
+
+        // Función para simular realizar una solicitud de aumento de crédito
+        function realizarSolicitud() {
+            window.location.href = "SolicitarAumentodeCrédito.html"; // Redirige a la página de solicitud
+        }
+
+        // Función para regresar al menú
+        function irAlMenu() {
+            window.location.href = "menu.html"; // Redirige al menú
+        }
+
+        // Inicializar la página con los datos de historial y crédito
+        document.getElementById("creditoDisponible").textContent = `Crédito disponible: $${creditoDisponible.toFixed(2)}`;
+        mostrarHistorial();
+    </script>
+</body>
+</html>

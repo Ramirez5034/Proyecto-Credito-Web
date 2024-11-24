@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #8B0000, #B22222); /* Colores rojo y vino */
+            color: #fff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            height: 4px;
+            background-color: #fff;
+            margin: 10px 0;
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        /* Contenedor para los productos y la tabla */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 10px;
+            width: 45%; /* Ajuste del tamaño para ocupar la mitad */
+        }
+
+        .product {
+            background-color: #fff;
+            color: #000;
+            border-radius: 8px;
+            text-align: center;
+            padding: 10px;
+            width: 150px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            background-color: #8B0000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product button:hover {
+            background-color: #5B0000;
+        }
+
+        table {
+            width: 45%; /* Ajuste para que ocupe el otro 50% */
+            margin: 0;
+            border-collapse: collapse;
+            background-color: #fff;
+            color: #000;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #8B0000;
+            color: #fff;
+        }
+
+        .actions {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .actions button {
+            background-color: #B22222;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .actions button:hover {
+            background-color: #8B0000;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn-container button {
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-container button:hover {
+            background-color: #5B0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+
+    <div class="section">
+        <h2>Consolas De Videojuegos</h2>
+        <div class="content-container">
+            <div class="product-container">
+                <!-- Productos -->
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/xbox%20one.jfif" alt="Xbox One">
+                    <button onclick="agregarProducto('Xbox One', 4836)">Xbox One</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/xbox%20one.jfif" alt="Xbox One">
+                    <button onclick="agregarProducto('Xbox One', 4836)">Xbox One</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/ps5.jpg" alt="Play Station">
+                    <button onclick="agregarProducto('Play Station 5', 5929)">Play Station</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/nintendo%20switch.jpg" alt="Nintendo Switch">
+                    <button onclick="agregarProducto('Nintendo Switch', 4500)">Nintendo Switch</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/gamecube.jpg" alt="Game Cube">
+                    <button onclick="agregarProducto('Game Cube', 1000)">Game Cube</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/game%20boy.jpg" alt="GameBoy Advance">
+                    <button onclick="agregarProducto('GameBoy Advance', 1234)">GameBoy Advance</button>
+                </div>
+                <div class="product">
+                    <img src="https://raw.githubusercontent.com/Ramirez5034/Complemento-de-Pagina-web-cr-dito/refs/heads/main/productos%20carrito/consola%20valve%20steam.jpg" alt="Valve Steam">
+                    <button onclick="agregarProducto('Valve Steam', 5000)">Valve Steam</button>
+                </div>
+            </div> <!-- Fin de product-container -->
+
+            <table id="carrito">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table> <!-- Fin de tabla carrito -->
+        </div> <!-- Fin de content-container -->
+    </div>
+
+    <div style="text-align: center; margin-top: 10px;">
+        <strong>Total: $<span id="total">0</span></strong>
+    </div>
+
+    <div class="btn-container">
+        <button onclick="location.href='menu.html'">Volver al Menú</button>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    </div>
+
+    <script>
+        const carrito = [];
+    
+        function agregarProducto(nombre, precio) {
+            const index = carrito.findIndex(producto => producto.nombre === nombre);
+    
+            if (index !== -1) {
+                carrito[index].cantidad++;
+            } else {
+                carrito.push({ nombre, precio, cantidad: 1 });
+            }
+            renderizarCarrito();
+        }
+    
+        function vaciarCarrito() {
+            carrito.length = 0;
+            renderizarCarrito();
+        }
+    
+        function disminuirCantidad(nombre) {
+            const index = carrito.findIndex(producto => producto.nombre === nombre);
+    
+            if (index !== -1) {
+                if (carrito[index].cantidad > 1) {
+                    carrito[index].cantidad--; // Disminuir la cantidad
+                } else {
+                    carrito.splice(index, 1); // Eliminar el producto si la cantidad es 1
+                }
+                renderizarCarrito();
+            }
+        }
+    
+        function eliminarProducto(nombre) {
+            const index = carrito.findIndex(producto => producto.nombre === nombre);
+    
+            if (index !== -1) {
+                carrito.splice(index, 1); // Eliminar el producto
+                renderizarCarrito();
+            }
+        }
+    
+        function renderizarCarrito() {
+            const carritoTabla = document.querySelector('#carrito tbody');
+            carritoTabla.innerHTML = '';
+    
+            let total = 0;
+            carrito.forEach(producto => {
+                const fila = document.createElement('tr');
+    
+                fila.innerHTML = `
+                    <td>${producto.nombre}</td>
+                    <td>$${producto.precio}</td>
+                    <td>
+                        <button onclick="disminuirCantidad('${producto.nombre}')">-</button>
+                        ${producto.cantidad}
+                        <button onclick="agregarProducto('${producto.nombre}', ${producto.precio})">+</button>
+                    </td>
+                    <td><button onclick="eliminarProducto('${producto.nombre}')">Eliminar</button></td>
+                `;
+    
+                carritoTabla.appendChild(fila);
+    
+                total += producto.precio * producto.cantidad;
+            });
+    
+            document.querySelector('#total').textContent = total;
+        }
+    </script>
+</body>
+</html>
